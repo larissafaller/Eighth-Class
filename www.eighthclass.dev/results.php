@@ -3,7 +3,7 @@
 $phone = $_GET["phone_number"];
 
 if (!empty($phone)) {
-	echo "Here is your phone number: $phone. <br>";
+	echo "Hello there, here is your phone number: $phone. <br>";
 } else {
 	echo "MORON!";
 }
@@ -20,7 +20,7 @@ if (!empty($name)) {
 }
 
 if ( empty($phone) OR empty($name) ) {
-	echo "Thank you sooooooo much!";
+	echo "You need to add more information!";
 }
 
 

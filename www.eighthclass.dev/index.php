@@ -6,29 +6,57 @@
 </head>
 <body>
 
-
-	<!-- if submit button has been pressed-->
 	<?php 
+	
 
-	// $button = null;
-
+	// If "button" has been pressed  {
 	if ( $_GET["button"] ) {
-		echo "The button has been pressed.";
-	} else {
-		?>
+
+					// and if $name, $phone values are set { echo Thank you for your information. }
+		if ( !empty($name) AND !empty($phone) ) {
+			echo "Thank you for your information <br>";
+
+					// else { show error message with form. }
+		} else {
+			echo "There was a problem with your information. Please try again. <br>"; ?>
+
+			<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="GET">
+				<div class="row">
+					<div class="large-12 columns">
+						<label>Full Name
+							<input type="text" placeholder="Your Name" name="full_name"/>
+						</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="large-4 columns">
+						<label>Phone Number						
+							<input type="text" placeholder="123-5555" name="phone_number"/>
+						</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="large-4 columns">
+						<input type="submit" value="Submit" name="button"/>
+					</div>
+				</div>
+			</form>
+			<?php	}
+		} else { ?>
+		<!-- else { show form. } -->
 
 		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="GET">
 			<div class="row">
 				<div class="large-12 columns">
-					<label>Phone Number
-						<input type="text" placeholder="123-5555" name="phone_number"/>
+					<label>Full Name
+						<input type="text" placeholder="Your Name" name="full_name"/>
 					</label>
 				</div>
 			</div>
 			<div class="row">
 				<div class="large-4 columns">
-					<label>Full Name
-						<input type="text" placeholder="Your Name" name="full_name"/>
+					<label>Phone Number						
+						<input type="text" placeholder="123-5555" name="phone_number"/>
 					</label>
 				</div>
 			</div>
@@ -38,21 +66,10 @@
 				</div>
 			</div>
 		</form>
-
 		<?php
 	}
-
-
-
-
-
 	?>
 
-	<!-- then check $name, $phone values are set. --> 
-
-	<!-- If value/s is/are empty, show form with error message. -->
-
-	<!-- Else echo thank you -->
 
 
 

@@ -26,7 +26,7 @@
 
 			echo "Thank you for your information <br>"; }
 
-			if ( empty($name) AND empty($phone) ) {
+			if ( empty($name) OR empty($phone) ) {
 
 				echo "There was a problem with your information. Please try again. <br>"; ?>
 
@@ -80,7 +80,7 @@
 
 			<?php } 
 
-			
+
 			?>
 
 

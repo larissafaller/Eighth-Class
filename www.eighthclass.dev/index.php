@@ -11,7 +11,7 @@
 
 	<div class="row">
 		<div class="large-12 columns large-centered">
-			<h2 class="text-center">PHP Form Practice</h2><br>
+			<br><h2 class="text-center">PHP Form Practice</h2><br>
 
 			<?php 
 
@@ -33,7 +33,7 @@
 
 				if ( !empty($name) AND !empty($phone) ) {
 
-					echo "<h4 class=\"text-center\">Thank you for your information.</h4><br>"; ?>
+					echo "<h4 class=\"text-center\">Success! Thank you for your information.</h4><br>"; ?>
 					<div class="row">
 						<div class="large-6 columns large-centered">
 							<img src="img/smiling-pug.jpg" alt="Smiling Pug" class="th"> 
@@ -44,7 +44,7 @@
 
 				if ( empty($name) OR empty($phone) ) {
 
-					echo "<h4 class=\"text-center\">There was a problem with your information. Please try again.</h4><br>" ; ?>
+					echo "<h4 class=\"text-center\">Uh-Oh! There was a problem with your information. Please try again.</h4><br>" ; ?>
 
 					<div class="row">
 						<div class="large-6 columns large-centered">

@@ -9,41 +9,20 @@
 	<?php 
 	
 
-	// If "button" has been pressed  {
-	if ( $_GET["button"] ) {
+	// If "button" has been pressed AND if $name, $phone values are set { 
+	// echo Thank you for your information. } 
+	// else { show error message with form. }
+	$phone = $_GET["phone_number"];
 
-					// and if $name, $phone values are set { echo Thank you for your information. }
-		if ( !empty($name) AND !empty($phone) ) {
-			echo "Thank you for your information <br>";
+	$name = $_GET["full_name"];
 
-					// else { show error message with form. }
-		} else {
-			echo "There was a problem with your information. Please try again. <br>"; ?>
+	if ( $_GET["button"] AND !empty($name) AND !empty($phone) ) {
+		echo "Thank you for your information <br>";
+	} 
 
-			<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="GET">
-				<div class="row">
-					<div class="large-12 columns">
-						<label>Full Name
-							<input type="text" placeholder="Your Name" name="full_name"/>
-						</label>
-					</div>
-				</div>
-				<div class="row">
-					<div class="large-4 columns">
-						<label>Phone Number						
-							<input type="text" placeholder="123-5555" name="phone_number"/>
-						</label>
-					</div>
-				</div>
-				<div class="row">
-					<div class="large-4 columns">
-						<input type="submit" value="Submit" name="button"/>
-					</div>
-				</div>
-			</form>
-			<?php	}
-		} else { ?>
-		<!-- else { show form. } -->
+	if ( $_GET["button"] AND empty($name) AND empty($phone) ) {
+
+		echo "There was a problem with your information. Please try again. <br>"; ?>
 
 		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="GET">
 			<div class="row">
@@ -66,12 +45,9 @@
 				</div>
 			</div>
 		</form>
-		<?php
-	}
-	?>
+
+		<?php } ?>
 
 
-
-
-</body>
-</html>
+	</body>
+	</html>

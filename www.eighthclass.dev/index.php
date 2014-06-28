@@ -27,9 +27,7 @@
 			
 			if ( isset($_GET["full_name"]) ){ $name = $_GET["full_name"]; }
 			
-			if ( isset($_GET["submit_button"]) ){ $button = $_GET["submit_button"]; }
-
-			if ( isset($button) ) {
+			if ( isset($_GET["submit_button"]) ) {
 
 				if ( !empty($name) AND !empty($phone) ) {
 
@@ -42,72 +40,80 @@
 					<?php
 				}
 
-				if ( empty($name) OR empty($phone) ) {
 
-					echo "<h4 class=\"text-center\">Uh-Oh! There was a problem with your information. Please try again.</h4><br>" ; ?>
 
-					<div class="row">
-						<div class="large-6 columns large-centered">
-							<div class=" panel">
-								<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="GET">
-									<div class="row">
-										<div class="large-12 columns">
-											<label>Full Name</label>
-											<input type="text" placeholder="Your Name" name="full_name"/>
+
+
+
+
+
+				if ( empty($name) OR empty($phone) 
+					// OR !preg_match("/[^a-z\s-]/i", $name) OR !preg_match("/[^0-9a-z\s-]/i", $phone
+					){
+
+						echo "<h4 class=\"text-center\">Uh-Oh! There was a problem with your information. Please try again.</h4><br>" ; ?>
+
+						<div class="row">
+							<div class="large-6 columns large-centered">
+								<div class=" panel">
+									<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="GET">
+										<div class="row">
+											<div class="large-12 columns">
+												<label>Full Name</label>
+												<input type="text" placeholder="Your Name" name="full_name"/>
+											</div>
 										</div>
-									</div>
-									<div class="row">
-										<div class="large-12 columns">
-											<label>Phone Number</label>					
-											<input type="text" placeholder="123-4567" name="phone_number"/>
+										<div class="row">
+											<div class="large-12 columns">
+												<label>Phone Number</label>					
+												<input type="text" placeholder="123-4567" name="phone_number"/>
+											</div>
 										</div>
-									</div>
-									<div class="row">
-										<div class="large-4 columns large-centered">
-											<input type="submit" value="Submit" name="submit_button" class=" medium button radius"/>
+										<div class="row">
+											<div class="large-4 columns large-centered">
+												<input type="submit" value="Submit" name="submit_button" class=" medium button radius"/>
+											</div>
 										</div>
-									</div>
-								</form>
+									</form>
+								</div>
 							</div>
 						</div>
-					</div>
 
 
-					<?php } 
-
-				} else { 
-					echo "<h4 class=\"text-center\">Please give your full name and phone number.</h4><br>";
-					?>
-					<div class="row">
-						<div class="large-6 columns large-centered">
-							<div class=" panel">
-								<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="GET">
-									<div class="row">
-										<div class="large-12 columns">
-											<label>Full Name</label>
-											<input type="text" placeholder="Your Name" name="full_name"/>
+						<?php } 
+					} else { 
+						echo "<h4 class=\"text-center\">Please give your full name and phone number.</h4><br>";
+						?>
+						<div class="row">
+							<div class="large-6 columns large-centered">
+								<div class=" panel">
+									<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="GET">
+										<div class="row">
+											<div class="large-12 columns">
+												<label>Full Name</label>
+												<input type="text" placeholder="Your Name" name="full_name"/>
+											</div>
 										</div>
-									</div>
-									<div class="row">
-										<div class="large-12 columns">
-											<label>Phone Number</label>					
-											<input type="text" placeholder="123-5555" name="phone_number"/>
+										<div class="row">
+											<div class="large-12 columns">
+												<label>Phone Number</label>					
+												<input type="text" placeholder="123-5555" name="phone_number"/>
+											</div>
 										</div>
-									</div>
-									<div class="row">
-										<div class="large-4 columns large-centered">
-											<input type="submit" value="Submit" name="submit_button" class=" medium button radius"/>
+										<div class="row">
+											<div class="large-4 columns large-centered">
+												<input type="submit" value="Submit" name="submit_button" class=" medium button radius"/>
+											</div>
 										</div>
-									</div>
-								</form>
+									</form>
+								</div>
 							</div>
 						</div>
+
+						<?php } 
+						?>
+
 					</div>
-
-					<?php } 
-					?>
-
 				</div>
-			</div>
-		</body>
-		</html>
+			</body>
+			</html>

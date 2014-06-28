@@ -13,8 +13,6 @@
 		<div class="large-12 columns large-centered">
 			<h2 class="text-center">PHP Form Practice</h2><br>
 
-
-
 			<?php 
 
 
@@ -107,10 +105,7 @@
 					</div>
 
 					<?php } 
-
-
 					?>
-
 
 				</div>
 			</div>

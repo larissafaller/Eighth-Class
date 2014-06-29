@@ -49,36 +49,9 @@
 
 				if ( empty($clean_name) OR empty($clean_number) )  {
 
-// 			3b. if 1. and 2b. , then echo error message; }
+// 			3b. if 1. and 2b. , then echo error message and show form}
 					echo "<h4 class=\"text-center\">Uh-Oh! There was a problem with your information.<br>Please try again.</h4><br>"; 
-
-					?>
-					<div class="row">
-						<div class="large-6 columns large-centered">
-							<div class=" panel">
-								<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="GET">
-									<div class="row">
-										<div class="large-12 columns">
-											<label>Full Name</label>
-											<input type="text" placeholder="Your Name" name="full_name"/>
-										</div>
-									</div>
-									<div class="row">
-										<div class="large-12 columns">
-											<label>Phone Number</label>					
-											<input type="text" placeholder="123-4567" name="phone_number"/>
-										</div>
-									</div>
-									<div class="row">
-										<div class="large-4 columns large-centered">
-											<input type="submit" value="Submit" name="submit_button" class=" medium button radius"/>
-										</div>
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-					<?php 
+					include 'form.php'; 
 				} 
 
 // 		2c. if 1. and if name and number are NOT empty {
@@ -89,34 +62,7 @@
 
 // 				4c. if 1. and 2c. and 3c. , then echo error message and show form. 
 						echo "<h4 class=\"text-center\">Oops! It seems there was a problem. Please input your full name (Name AND Surname).</h4><br>";
-
-						?>
-						<div class="row">
-							<div class="large-6 columns large-centered">
-								<div class=" panel">
-									<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="GET">
-										<div class="row">
-											<div class="large-12 columns">
-												<label>Full Name</label>
-												<input type="text" placeholder="Your Name" name="full_name"/>
-											</div>
-										</div>
-										<div class="row">
-											<div class="large-12 columns">
-												<label>Phone Number</label>					
-												<input type="text" placeholder="123-4567" name="phone_number"/>
-											</div>
-										</div>
-										<div class="row">
-											<div class="large-4 columns large-centered">
-												<input type="submit" value="Submit" name="submit_button" class=" medium button radius"/>
-											</div>
-										</div>
-									</form>
-								</div>
-							</div>
-						</div>
-						<?php 
+						include 'form.php';  
 
 					}
 
@@ -126,34 +72,7 @@
 
 // 				4c. if 1. and 2c. and 3cd. , then echo error message and show form. 
 						echo "<h4 class=\"text-center\">Oops! It seems there was a problem. Please input a correct phone number.</h4><br>";
-
-						?>
-						<div class="row">
-							<div class="large-6 columns large-centered">
-								<div class=" panel">
-									<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="GET">
-										<div class="row">
-											<div class="large-12 columns">
-												<label>Full Name</label>
-												<input type="text" placeholder="Your Name" name="full_name"/>
-											</div>
-										</div>
-										<div class="row">
-											<div class="large-12 columns">
-												<label>Phone Number</label>					
-												<input type="text" placeholder="123-4567" name="phone_number"/>
-											</div>
-										</div>
-										<div class="row">
-											<div class="large-4 columns large-centered">
-												<input type="submit" value="Submit" name="submit_button" class=" medium button radius"/>
-											</div>
-										</div>
-									</form>
-								</div>
-							</div>
-						</div>
-						<?php 
+						include 'form.php'; 
 
 					}
 				}
@@ -161,41 +80,9 @@
 // If not 1, just show form;
 			} else { 
 				echo "<h4 class=\"text-center\">Please give your full name and phone number.</h4><br>";
+				include 'form.php'; 
+			} ?>
 
-				?>
-				<div class="row">
-					<div class="large-6 columns large-centered">
-						<div class=" panel">
-							<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="GET">
-								<div class="row">
-									<div class="large-12 columns">
-										<label>Full Name</label>
-										<input type="text" placeholder="Your Name" name="full_name"/>
-									</div>
-								</div>
-								<div class="row">
-									<div class="large-12 columns">
-										<label>Phone Number</label>					
-										<input type="text" placeholder="123-4567" name="phone_number"/>
-									</div>
-								</div>
-								<div class="row">
-									<div class="large-4 columns large-centered">
-										<input type="submit" value="Submit" name="submit_button" class=" medium button radius"/>
-									</div>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-				<?php 
-			}
-			
-
-
-
-
-			?>
 
 		</div>
 	</div>

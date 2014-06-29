@@ -34,7 +34,7 @@
 					if ( stripos($_GET["full_name"], " ") == true AND is_numeric($clean_number) ) { 
 
 //  			4a. if 1. and 2. and 3. then echo success message, show puppy; }}
-						echo "<h4 class=\"text-center\">Success! Thank you for your information.</h4><br>";
+						echo "<h4 class=\"text-center\">Success!<br>Thank you for your information.</h4><br><br>";
 						?>
 						<div class="row">
 							<div class="large-6 columns large-centered">
@@ -49,10 +49,15 @@
 
 				if ( empty($clean_name) OR empty($clean_number) )  {
 
-// 			3b. if 1. and 2b. , then echo error message and show form}
-					echo "<h4 class=\"text-center\">Uh-Oh! Something's missing.<br>Please try again.</h4><br>"; 
-					include 'form.php'; 
-				} 
+// 			3b. if 1. and 2b. if full name does have a space, but phone number is not numeric  {
+					if ( stripos($_GET["full_name"], " ") === false OR !is_numeric($clean_number)) {
+
+// 			4b. if 1. and 2b. and 3b. , then echo error message and show form}
+						echo "<h4 class=\"text-center\">Uh-Oh! Something's missing.<br>Please try again.</h4><br>"; 
+						include 'form.php'; 
+						die();
+					} 
+				}
 
 // 		2c. if 1. and if name and number are NOT empty {
 				if ( !empty($clean_name) AND !empty($clean_number) ) {
@@ -61,30 +66,29 @@
 					if ( stripos($_GET["full_name"], " ") === false AND is_numeric($clean_number)) {
 
 // 				4c. if 1. and 2c. and 3c. , then echo 'full name' error message and show form. 
-						echo "<h4 class=\"text-center\">Oops! It seems there was a problem. Please input your full name.</h4><br>";
+						echo "<h4 class=\"text-center\">Oops! It seems there was a problem.<br>Please input your full name.</h4><br>";
 						include 'form.php';  
-
 					}
 
-
-// 			3d. if 1. and 2c. if full name does have a space, but phone number is not numeric  {
+// 			3cc. if 1. and 2c. if full name does have a space, but phone number is not numeric  {
 					if ( stripos($_GET["full_name"], " ") == true AND !is_numeric($clean_number) ) {
 
-// 				4d. if 1. and 2c. and 3cd. , then echo 'phone number' error message and show form. 
-						echo "<h4 class=\"text-center\">Oops! It seems there was a problem. Please input a correct phone number.</h4><br>";
+// 				4d. if 1. and 2c. and 3cc. , then echo 'phone number' error message and show form. 
+						echo "<h4 class=\"text-center\">Oops! It seems there was a problem.<br>Please input a correct phone number.</h4><br>";
 						include 'form.php'; 
-
 					}
 				}
 
-// 			3e. if 1. and 2c. if full name doesn't have a space and phone number is not numeric {
+// 		2d. if 1. and if name OR number are empty {
 
 				if ( !empty($clean_name) OR !empty($clean_number) )  {
 
+// 			3d. if 1. and 2d. if full name doesn't have a space and phone number is not numeric {
 					if ( stripos($_GET["full_name"], " ") === false AND !is_numeric($clean_number) ) {
 
-// 				4e. if 1. and 2c. and 3cd. , then echo error 'full name and phone number' message and show form. 
-						echo "<h4 class=\"text-center\">Oops! It seems there was a problem. Please input your full name and a correct phone number.</h4><br>";
+
+// 				4d. if 1. and 2d. and 3d. , then echo error 'full name and phone number' message and show form. 
+						echo "<h4 class=\"text-center\">Oops! It seems there was a problem.<br>Please input your full name and a correct phone number.</h4><br>";
 						include 'form.php'; 
 
 					}
@@ -93,7 +97,7 @@
 
 // If not 1, show start up message and show form;
 			} else { 
-				echo "<h4 class=\"text-center\">Please give your full name and phone number.</h4><br>";
+				echo "<h4 class=\"text-center\">Hello!<br>Please give your full name and phone number.<br></h4><br>";
 				include 'form.php'; 
 			} ?>
 

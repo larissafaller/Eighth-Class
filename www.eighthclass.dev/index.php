@@ -13,8 +13,8 @@
 		<div class="large-12 columns large-centered">
 			<br><h2 class="text-center">PHP Form Practice</h2><br>
 
+			
 			<?php 
-
 
 			if ( isset($_GET["full_name"]) ){ $clean_name = preg_replace("/[^A-Za-z?! ]/","", $_GET["full_name"]); }
 
@@ -57,27 +57,41 @@
 // 		2c. if 1. and if name and number are NOT empty {
 				if ( !empty($clean_name) AND !empty($clean_number) ) {
 
-// 			3c. if 1. and 2c. and if full name doesn't have a space {
-					if ( stripos($_GET["full_name"], " ") === false ) {
+// 			3c. if 1. and 2c. and if full name doesn't have a space, but number is numeric {
+					if ( stripos($_GET["full_name"], " ") === false AND is_numeric($clean_number)) {
 
-// 				4c. if 1. and 2c. and 3c. , then echo error message and show form. 
-						echo "<h4 class=\"text-center\">Oops! It seems there was a problem. Please input your full name (Name AND Surname).</h4><br>";
+// 				4c. if 1. and 2c. and 3c. , then echo 'full name' error message and show form. 
+						echo "<h4 class=\"text-center\">Oops! It seems there was a problem. Please input your full name.</h4><br>";
 						include 'form.php';  
 
 					}
 
 
-// 			3cd. if 1. and 2c. and number is not numeric {
-					if ( !is_numeric($clean_number) ) {
+// 			3d. if 1. and 2c. if full name does have a space, but phone number is not numeric  {
+					if ( stripos($_GET["full_name"], " ") == true AND !is_numeric($clean_number) ) {
 
-// 				4c. if 1. and 2c. and 3cd. , then echo error message and show form. 
+// 				4d. if 1. and 2c. and 3cd. , then echo 'phone number' error message and show form. 
 						echo "<h4 class=\"text-center\">Oops! It seems there was a problem. Please input a correct phone number.</h4><br>";
 						include 'form.php'; 
 
 					}
 				}
 
-// If not 1, just show form;
+// 			3e. if 1. and 2c. if full name doesn't have a space and phone number is not numeric {
+
+				if ( !empty($clean_name) OR !empty($clean_number) )  {
+					
+					if ( stripos($_GET["full_name"], " ") === false AND !is_numeric($clean_number) ) {
+
+// 				4e. if 1. and 2c. and 3cd. , then echo error 'full name and phone number' message and show form. 
+						echo "<h4 class=\"text-center\">Oops! It seems there was a problem. Please input your full name and a correct phone number.</h4><br>";
+						include 'form.php'; 
+
+					}
+				}
+
+
+// If not 1, show start up message and show form;
 			} else { 
 				echo "<h4 class=\"text-center\">Please give your full name and phone number.</h4><br>";
 				include 'form.php'; 

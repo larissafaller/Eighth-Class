@@ -50,7 +50,7 @@
 				if ( empty($clean_name) OR empty($clean_number) )  {
 
 // 			3b. if 1. and 2b. , then echo error message and show form}
-					echo "<h4 class=\"text-center\">Uh-Oh! There was a problem with your information.<br>Please try again.</h4><br>"; 
+					echo "<h4 class=\"text-center\">Uh-Oh! Something's missing.<br>Please try again.</h4><br>"; 
 					include 'form.php'; 
 				} 
 
@@ -80,7 +80,7 @@
 // 			3e. if 1. and 2c. if full name doesn't have a space and phone number is not numeric {
 
 				if ( !empty($clean_name) OR !empty($clean_number) )  {
-					
+
 					if ( stripos($_GET["full_name"], " ") === false AND !is_numeric($clean_number) ) {
 
 // 				4e. if 1. and 2c. and 3cd. , then echo error 'full name and phone number' message and show form. 

@@ -6,13 +6,26 @@
 				<div class="row">
 					<div class="large-12 columns">
 						<label>Full Name</label>
-						<input type="text" placeholder="Your Name" name="full_name"/>
+						<input type="text" placeholder="Your Name" name="full_name" 
+
+						<?php if ( isset($_GET["full_name"]) ) {
+							echo "value='" . $_GET["full_name"] . "' ";
+						} ?>
+
+						/>
 					</div>
 				</div>
 				<div class="row">
 					<div class="large-12 columns">
 						<label>Phone Number</label>					
-						<input type="text" placeholder="123-4567" name="phone_number"/>
+						<input type="text" placeholder="123-4567" name="phone_number"
+
+						<?php if ( isset($_GET["phone_number"]) ) {
+							echo "value='" . $_GET["phone_number"] . "' ";
+						} ?>
+
+						/>
+
 					</div>
 				</div>
 				<div class="row">

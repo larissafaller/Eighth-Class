@@ -31,7 +31,7 @@
 				if ( !empty($clean_name) AND !empty($clean_number) ) {
 
 //  		3a. if 1. and 2. and if there is no space between the words and the number is numeric {
-					if ( stripos($_GET["full_name"], " ") === true AND is_numeric($clean_number) ) { 
+					if ( stripos($_GET["full_name"], " ") == true AND is_numeric($clean_number) ) { 
 
 //  			4a. if 1. and 2. and 3. then echo success message, show puppy; }}
 						echo "<h4 class=\"text-center\">Success! Thank you for your information.</h4><br>";
@@ -50,7 +50,7 @@
 				if ( empty($clean_name) OR empty($clean_number) )  {
 
 // 			3b. if 1. and 2b. , then echo error message; }
-					echo "<h4 class=\"text-center\">Uh-Oh! There was a problem with your information. Please try again.</h4><br>"; 
+					echo "<h4 class=\"text-center\">Uh-Oh! There was a problem with your information.<br>Please try again.</h4><br>"; 
 
 					?>
 					<div class="row">
